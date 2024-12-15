@@ -29,6 +29,9 @@ To deploy a basic HTML/CSS website on AWS EC2 using Nginx, follow the steps belo
 3. **Launch the Instance**:
     
     - Click **Launch** and note the **Public IP Address** of the instance once it’s running.
+		![[1-server.png]]
+
+
 
 ### Step 2: Connect to Your EC2 Instance
 
@@ -42,7 +45,11 @@ To deploy a basic HTML/CSS website on AWS EC2 using Nginx, follow the steps belo
         ```
         
     - If using Ubuntu, replace `ec2-user` with `ubuntu`.
-        
+		![[Project 4/2-ssh.png]]
+
+		![[Project 4/3-ssh.png]]
+
+		![[Project 4/4-login.png]]
 
 ### Step 3: Install Nginx
 sudocd
@@ -63,7 +70,7 @@ sudocd
             sudo apt update
             sudo apt install nginx -y
             ```
-            
+            ![[Project 4/5-update.png]]
 2. **Start Nginx**:
     
     - Start and enable Nginx to run on boot:
@@ -81,11 +88,12 @@ sudocd
             sudo systemctl start nginx
             sudo systemctl enable nginx
             ```
-            
+            ![[6-start-enable.png]]
 3. **Verify Nginx is Running**:
     
     - Open a web browser and enter the EC2 public IP address.
     - You should see the default Nginx welcome page.
+	    ![[7-site.png]]
 
 ### Step 4: Set Up Your Website
 
@@ -96,7 +104,7 @@ sudocd
         ```copy
         sudo mkdir -p /var/www/html/mywebsite
         ```
-        
+        ![[8-mkdir.png]]
 2. **Upload HTML/CSS Files**:
     
 ```copy
@@ -235,7 +243,7 @@ footer {
         ```copy
         sudo nano /etc/nginx/sites-avaliable
         ```
-        
+        ![[10-vi-default.png]]
     - Find the following block and modify it to reflect your website directory:
         
         ```nginx
@@ -251,7 +259,7 @@ footer {
             # Other configuration (log files, etc.)
         }
         ```
-        
+        ![[11-location.png]]
 4. **Test Nginx Configuration**:
     
     - Before restarting Nginx, make sure the configuration file is valid:
@@ -259,13 +267,13 @@ footer {
         ```copy
         sudo nginx -t
         ```
-        
+        ![[12-t.png]]
     - If everything is okay, restart Nginx:
         
         ```copy
         sudo systemctl restart nginx
         ```
-        
+        ![[13-restart.png]]
 
 ### Step 5: Access Your Website
 
@@ -276,7 +284,7 @@ footer {
     ```
     
 - You should now see your HTML/CSS website.
-    
+    ![[14website.png]]
 
 ### Step 6: (Optional) Set Up a Domain Name
 
